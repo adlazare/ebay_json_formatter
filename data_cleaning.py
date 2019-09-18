@@ -97,6 +97,11 @@ def format_values(product):
                 price = price_strings[-1]
                 price = price.lstrip('$')
                 price = price.rstrip('/ea')
+
+                # EDGE CASE: Removes comma from price
+                if ',' in price:
+                    price = price.replace(',', '')
+
                 price = float(price)
                 currency = price_strings[-2]
             elif type(test_val) is int:
@@ -104,6 +109,11 @@ def format_values(product):
                 price = price_strings[0]
                 price = price.lstrip('$')
                 price = price.rstrip('/ea')
+
+                # EDGE CASE: Removes comma from price
+                if ',' in price:
+                    price = price.replace(',', '')
+
                 price = float(price)
                 currency = price_strings[1]
 
